@@ -16,6 +16,16 @@
 			path = "Swift Chat";
 			sourceTree = "<group>";
 		};
+		E7F9252E2F3A244E00D0F271 /* Mock */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		E7F925362F3B56BC00D0F271 /* ProfilePages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProfilePages;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,8 +42,10 @@
 		E71FA6C82F3A1034005F4592 = {
 			isa = PBXGroup;
 			children = (
+				E7F9252E2F3A244E00D0F271 /* Mock */,
 				E71FA6D32F3A1034005F4592 /* Swift Chat */,
 				E71FA6D22F3A1034005F4592 /* Products */,
+				E7F925362F3B56BC00D0F271 /* ProfilePages */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +74,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E71FA6D32F3A1034005F4592 /* Swift Chat */,
+				E7F9252E2F3A244E00D0F271 /* Mock */,
+				E7F925362F3B56BC00D0F271 /* ProfilePages */,
 			);
 			name = "Swift Chat";
 			packageProductDependencies = (

@@ -10,12 +10,30 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            NavigationStack{
+                HStack{
+                    Text("SWIFT CHAT").font(.title).fontWeight(.bold)
+                    Image(systemName: "message.badge.fill.rtl").font(.title)
+                    Spacer()
+                    
+                    
+                    NavigationLink {
+                        Profile()
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundStyle(Color.black)
+                    }
+                    
+                    
+                    
+                }
+                
+                Divider().background(Color.gray).frame(height: 2)
+                
+                NavigationPane()
+            }.padding()
         }
-        .padding()
     }
 }
 
