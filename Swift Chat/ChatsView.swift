@@ -23,40 +23,44 @@ struct ChatsView: View {
                 ? Color.primary
                 : Color.blue
                 
-                HStack(spacing: 12) {
+                NavigationLink{
                     
-                    Image(systemName: user.avatar)
-                        .resizable()
-                        .frame(width: 50, height: 50)
-//                        .foregroundColor(.blue)
-//                        .background( Color.blue.opacity(0.2))
-                        .clipShape(Circle())
-                    
-                    VStack(alignment: .leading, spacing: 6) {
+                }label:{
+                    HStack(spacing: 12) {
                         
-                        Text(user.name)
-                            .font(
-                                user.isMessageRead
-                                ? .headline
-                                : .headline.bold()
-                            )
+                        Image(systemName: user.avatar)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+    //                        .foregroundColor(.blue)
+    //                        .background( Color.blue.opacity(0.2))
+                            .clipShape(Circle())
                         
-                        Text(user.lastMessage)
-                            .font(.subheadline)
-                            .lineLimit(1)
-                    }
-                    .foregroundColor(textColor)
-                    
-                    
-                    Spacer()
-                    
-                    VStack {
+                        VStack(alignment: .leading, spacing: 6) {
+                            
+                            Text(user.name)
+                                .font(
+                                    user.isMessageRead
+                                    ? .headline
+                                    : .headline.bold()
+                                )
+                            
+                            Text(user.lastMessage)
+                                .font(.subheadline)
+                                .lineLimit(1)
+                        }
+                        .foregroundColor(textColor)
                         
-                        Text(formatDate(user.lastMsgDateTime))
-                            .font(.caption)
-                            .foregroundColor(textColor)
                         
                         Spacer()
+                        
+                        VStack {
+                            
+                            Text(formatDate(user.lastMsgDateTime))
+                                .font(.caption)
+                                .foregroundColor(textColor)
+                            
+                            Spacer()
+                        }
                     }
                 }
                 .padding(.vertical, 6)
