@@ -31,8 +31,18 @@ struct Profile: View {
                     Label("Account Settings", systemImage: "gear")
                 }
                 
-                Label("Help", systemImage: "questionmark.circle")
-                Label("Privacy", systemImage: "lock")
+                NavigationLink{
+                    Help()
+                }label: {
+                    Label("Help", systemImage: "questionmark.circle")
+                }
+                
+                NavigationLink{
+                    Privacy()
+                }label: {
+                    Label("Privacy", systemImage: "lock")
+                }
+                
             }
             .listStyle(.plain)
             
