@@ -6,13 +6,12 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationStack {
-            
-            if isUserLoggedIn {
+        if isUserLoggedIn {
+            NavigationStack {
                 HomeView(isUserLoggedIn: $isUserLoggedIn)
-            } else {
-                LoginScreen(isUserLoggedIn: $isUserLoggedIn)
             }
+        } else {
+            LoginScreen(isUserLoggedIn: $isUserLoggedIn)
         }
     }
 }
