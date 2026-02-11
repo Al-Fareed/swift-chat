@@ -26,6 +26,11 @@
 			path = ProfilePages;
 			sourceTree = "<group>";
 		};
+		E7F925482F3B833800D0F271 /* Utils */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 				E71FA6D32F3A1034005F4592 /* Swift Chat */,
 				E71FA6D22F3A1034005F4592 /* Products */,
 				E7F925362F3B56BC00D0F271 /* ProfilePages */,
+				E7F925482F3B833800D0F271 /* Utils */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +82,7 @@
 				E71FA6D32F3A1034005F4592 /* Swift Chat */,
 				E7F9252E2F3A244E00D0F271 /* Mock */,
 				E7F925362F3B56BC00D0F271 /* ProfilePages */,
+				E7F925482F3B833800D0F271 /* Utils */,
 			);
 			name = "Swift Chat";
 			packageProductDependencies = (

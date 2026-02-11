@@ -1,21 +1,26 @@
-//
-//  ContentView.swift
-//  Swift Chat
-//
-//  Created by Al-Fareed on 09/02/26.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            NavigationStack{
-                HStack{
-                    Text("SWIFT CHAT").font(.title).fontWeight(.bold)
-                    Image(systemName: "message.badge.fill.rtl").font(.title)
-                    Spacer()
+        
+        NavigationStack {
+            
+            VStack(spacing: 0) {
+                
+                // MARK: - Header
+                
+                HStack {
                     
+                    Text("SWIFT CHAT")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    Image(systemName: "message.badge.fill.rtl")
+                        .font(.title)
+                    
+                    Spacer()
                     
                     NavigationLink {
                         Profile()
@@ -24,15 +29,43 @@ struct ContentView: View {
                             .font(.largeTitle)
                             .foregroundStyle(Color.black)
                     }
-                    
-                    
-                    
                 }
+                .padding()
                 
-                Divider().background(Color.gray).frame(height: 2)
                 
-                NavigationPane()
-            }.padding()
+                Divider()
+                
+                
+                // MARK: - Navigation + Floating Button
+                
+                ZStack {
+                    
+                    // Navigation Tabs
+                    NavigationPane()
+                    
+                    
+                    // Floating + Button
+                    VStack {
+                        Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            
+                            ZStack {
+                                Circle()
+                                    .fill(Color.black)
+                                    .frame(width: 56, height: 56)
+                                    .shadow(radius: 4)
+                                
+                                Image(systemName: "plus")
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                            }
+                            .padding()
+                        }
+                    }
+                }
+            }
         }
     }
 }

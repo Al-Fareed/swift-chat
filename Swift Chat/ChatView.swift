@@ -1,25 +1,28 @@
-//
-//  ChatView.swift
-//  Swift Chat
-//
-//  Created by Al-Fareed on 10/02/26.
-//
+
 import SwiftUI
 
 struct ChatView: View {
     
     let messages = Chats.chats
     let currentUser: String = "alfa"
-    
+    @Environment(\.dismiss) var dismiss
+
     @State private var message = ""
-    
+    @StateObject var utils = Utils()
     var body: some View {
         
         VStack(spacing: 0) {
             
             // MARK: - Header
             
-            HStack {
+            HStack(spacing:12) {
+                Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                    }
                 
                 Image(systemName: "person.fill")
                 
@@ -67,12 +70,12 @@ struct ChatView: View {
             HStack{
                 TextField("Enter Message",text:$message)
                 Button{
-                    
+                    utils.alertUser(message: "Not implemented bro")
                 }label: {
                     Image(systemName: "paperplane.fill")
                 }
             }.padding()
-        }
+        }.toolbar(.hidden, for: .navigationBar)
     }
     
     func formatDate(_ date: Date) -> String {
