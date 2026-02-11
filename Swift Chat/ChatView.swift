@@ -1,44 +1,46 @@
-
 import SwiftUI
 
 struct ChatView: View {
     
+    let user: ChatUser
     let messages = Chats.chats
-    let currentUser: String = "alfa"
+    let currentUser = "alfa"
+    
     @Environment(\.dismiss) var dismiss
-
+    
     @State private var message = ""
-    @StateObject var utils = Utils()
+    @State private var showAlert = false
+    
     var body: some View {
         
         VStack(spacing: 0) {
             
-            // MARK: - Header
-            
-            HStack(spacing:12) {
+            // Header
+            HStack(spacing: 12) {
+                
                 Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                    }
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
                 
-                Image(systemName: "person.fill")
+                Image(systemName: user.avatar)
                 
-                Text("Test User")
+                Text(user.name)
                 
                 Spacer()
                 
                 Image(systemName: "ellipsis")
                     .rotationEffect(.degrees(90))
             }
-            .font(.title2)
+            .font(.title3)
             .fontWeight(.bold)
             .padding()
             
             Divider()
             
+            
+            // Messages
             List(messages) { msg in
                 
                 HStack {
@@ -66,26 +68,31 @@ struct ChatView: View {
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
             }
+            .listStyle(.plain)
             
-            HStack{
-                TextField("Enter Message",text:$message)
-                Button{
-                    utils.alertUser(message: "Not implemented bro")
-                }label: {
+            
+            // Input bar
+            HStack {
+                
+                TextField("Enter message", text: $message)
+                    .padding(10)
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(10)
+                
+                Button {
+                    showAlert = true
+                } label: {
                     Image(systemName: "paperplane.fill")
+                        .foregroundColor(.blue)
                 }
-            }.padding()
-        }.toolbar(.hidden, for: .navigationBar)
+            }
+            .padding()
+        }
+        .toolbar(.hidden, for: .navigationBar)
+        
+        .alert("Not implemented bro 😄",
+               isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        }
     }
-    
-    func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a"
-        return formatter.string(from: date)
-    }
-}
-
-
-#Preview {
-    ChatView()
 }

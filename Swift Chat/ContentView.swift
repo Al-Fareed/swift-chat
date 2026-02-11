@@ -1,18 +1,22 @@
-
 import SwiftUI
 
 struct ContentView: View {
-    var isUserLoggedIn : Bool = true
-    var body: some View{
-        if isUserLoggedIn {
-            HomeView()
-        }else{
-            LoginScreen()
-        }
+    
+    @Binding var isUserLoggedIn: Bool
+    
+    var body: some View {
         
+        NavigationStack {
+            
+            if isUserLoggedIn {
+                HomeView(isUserLoggedIn: $isUserLoggedIn)
+            } else {
+                LoginScreen(isUserLoggedIn: $isUserLoggedIn)
+            }
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(isUserLoggedIn: .constant(false))
 }

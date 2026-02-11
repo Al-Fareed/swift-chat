@@ -1,69 +1,54 @@
-
 import SwiftUI
-struct Profile : View {
+
+struct Profile: View {
+    
+    @Binding var isUserLoggedIn: Bool
     let currentUser = Data.currentUser
-    var body : some View {
-        NavigationStack{
-            VStack{
-                ZStack{
-                    Circle().fill(Color.gray.opacity(0.2)).frame(width: 140, height: 140)
-                    
-                    Image(systemName: "person.fill").font(.system(size:100))
-                }
-                Text(currentUser.name).fontWeight(.bold).font(.title)
-                List{
-                    NavigationLink{
-                        AccountSettings()
-                    }label: {
-                        Image(systemName: "gear")
-                        Text("Account Settings")
-                    }
-                   
-                    NavigationLink{
-                        
-                    }label: {
-                        Image(systemName: "questionmark.circle")
-                        Text("Help")
-                    }
-                    NavigationLink{
-                        
-                    }label: {
-                        Image(systemName: "lock")
-                        Text("Privacy")
-                    }
-                    
-                }.listStyle(.plain)
+    
+    var body: some View {
+        
+        VStack {
+            
+            ZStack {
+                Circle()
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(width: 140, height: 140)
                 
-                Button {
-//                    logout()
-                } label: {
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Image(systemName: "power")
-                        Text("Logout")
-                            
-                        
-                        Spacer()
-                    }.fontWeight(.bold)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                }
-                .foregroundColor(.red)
-                .overlay(
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(.gray.opacity(0.3)),
-                    alignment: .top
-                )
-
-
+                Image(systemName: "person.fill")
+                    .font(.system(size: 100))
             }
+            
+            Text(currentUser.name)
+                .font(.title)
+                .fontWeight(.bold)
+            
+            
+            List {
+                
+                NavigationLink {
+                    AccountSettings()
+                } label: {
+                    Label("Account Settings", systemImage: "gear")
+                }
+                
+                Label("Help", systemImage: "questionmark.circle")
+                Label("Privacy", systemImage: "lock")
+            }
+            .listStyle(.plain)
+            
+            
+            Button {
+                isUserLoggedIn = false
+            } label: {
+                HStack {
+                    Spacer()
+                    Image(systemName: "power")
+                    Text("Logout")
+                    Spacer()
+                }
+                .padding()
+            }
+            .foregroundColor(.red)
         }
     }
-}
-
-#Preview{
-    Profile()
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct LoginScreen: View {
     
+    @Binding var isUserLoggedIn: Bool
     @State var mobileNumber: String = ""
     
     var body: some View {
@@ -11,7 +12,6 @@ struct LoginScreen: View {
             Spacer()
             
             ZStack {
-                
                 Circle()
                     .fill(Color.gray.opacity(0.1))
                     .frame(width: 120, height: 120)
@@ -50,8 +50,9 @@ struct LoginScreen: View {
             .background(Color.gray.opacity(0.1))
             .cornerRadius(12)
             
+            
             Button {
-                // Login action
+                isUserLoggedIn = true   // ✅ Login success
             } label: {
                 
                 Text("Login")
@@ -64,7 +65,6 @@ struct LoginScreen: View {
             }
             .padding(.top, 10)
             
-            
             Spacer()
             
             Text("By continuing, you agree to our Terms & Privacy Policy")
@@ -75,8 +75,4 @@ struct LoginScreen: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    LoginScreen()
 }
