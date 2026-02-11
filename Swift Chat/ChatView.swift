@@ -84,7 +84,7 @@ struct ChatView: View {
                 } label: {
                     Image(systemName: "paperplane.fill")
                         .foregroundColor(.blue)
-                }
+                }.disabled(message.isEmpty)
             }
             .padding()
         }

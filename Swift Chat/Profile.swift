@@ -46,7 +46,6 @@ struct Profile: View {
             }
             .listStyle(.plain)
             
-            
             Button {
                 isUserLoggedIn = false
             } label: {

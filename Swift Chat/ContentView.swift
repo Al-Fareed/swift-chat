@@ -11,7 +11,9 @@ struct ContentView: View {
                 HomeView(isUserLoggedIn: $isUserLoggedIn)
             }
         } else {
-            LoginScreen(isUserLoggedIn: $isUserLoggedIn)
+            NavigationStack {
+                LoginScreen(isUserLoggedIn: $isUserLoggedIn)
+            }
         }
     }
 }

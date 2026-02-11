@@ -4,6 +4,7 @@ struct LoginScreen: View {
     
     @Binding var isUserLoggedIn: Bool
     @State var mobileNumber: String = ""
+    @State private var navigateToOTP = false
     
     var body: some View {
         
@@ -39,10 +40,10 @@ struct LoginScreen: View {
             
             HStack {
                 
-                Image(systemName: "phone.fill")
+                Image(systemName: "envelope.fill")
                     .foregroundColor(.gray)
                 
-                TextField("Enter Mobile / Email", text: $mobileNumber)
+                TextField("Enter Email", text: $mobileNumber)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
             }
@@ -52,17 +53,17 @@ struct LoginScreen: View {
             
             
             Button {
-                isUserLoggedIn = true   // ✅ Login success
+                navigateToOTP = true
             } label: {
                 
                 Text("Login")
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.black)
                     .foregroundColor(.white)
                     .cornerRadius(12)
-            }
+                    .background(mobileNumber.isEmpty ? Color.gray : Color.black)
+            }.disabled(mobileNumber.isEmpty)
             .padding(.top, 10)
             
             Spacer()
@@ -74,5 +75,8 @@ struct LoginScreen: View {
                 .padding(.horizontal)
         }
         .padding()
+        .navigationDestination(isPresented: $navigateToOTP) {
+            OTPScreen(isUserLoggedIn: $isUserLoggedIn)
+        }
     }
 }
