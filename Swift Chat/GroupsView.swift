@@ -1,9 +1,4 @@
-//
-//  GroupsView.swift
-//  Swift Chat
-//
-//  Created by Al-Fareed on 09/02/26.
-//
+
 import SwiftUI
 import Foundation
 

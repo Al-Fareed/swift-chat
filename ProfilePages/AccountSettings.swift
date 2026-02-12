@@ -1,9 +1,4 @@
-//
-//  AccountSettings.swift
-//  Swift Chat
-//
-//  Created by Al-Fareed on 10/02/26.
-//
+
 import SwiftUI
 
 struct AccountSettings: View {

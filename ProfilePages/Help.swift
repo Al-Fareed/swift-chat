@@ -1,7 +1,8 @@
-//
-//  Help.swift
-//  Swift Chat
-//
-//  Created by Al-Fareed on 10/02/26.
-//
 
+import SwiftUI
+
+struct Help : View {
+    var body: some View {
+        Text("Sorry bro, Can't help you.. 🙂 ").font(.headline)
+    }
+}

@@ -1,17 +1,13 @@
-//
-//  Swift_ChatApp.swift
-//  Swift Chat
-//
-//  Created by Al-Fareed on 09/02/26.
-//
-
 import SwiftUI
 
 @main
 struct Swift_ChatApp: App {
+    
+    @AppStorage("isUserLoggedIn") var isUserLoggedIn: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(isUserLoggedIn: $isUserLoggedIn)
         }
     }
 }
